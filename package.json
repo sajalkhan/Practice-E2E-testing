@@ -1,0 +1,13 @@
+{
+    "scripts": {
+        "test:e2e": "cross-env NODE_ENV=test jest --clearCache && jest -c jest.config.js --detectOpenHandles --forceExit"
+    },
+    "devDependencies": {
+        "puppeteer": "11.0.0"
+    },
+    "dependencies": {
+        "cross-env": "^7.0.3",
+        "jest": "^27.3.1",
+        "jest-puppeteer": "^6.0.0"
+    }
+}
