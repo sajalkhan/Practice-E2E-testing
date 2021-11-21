@@ -29,4 +29,4 @@ testFunction = (name) => {
   });
 };
 
-testFunction("daraz.com");
+testFunction("example 1");
