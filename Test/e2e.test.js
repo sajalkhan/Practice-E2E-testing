@@ -1,4 +1,6 @@
-const puppeteer = require("puppeteer");
+const playwright = require("playwright");
+const { getEdgePath } = require("edge-paths");
+const EDGE_PATH = getEdgePath();
 
 testFunction = (name) => {
   describe(`Sample e2e test ${name}: `, () => {
@@ -6,14 +8,13 @@ testFunction = (name) => {
     let page;
 
     beforeAll(async () => {
-      browser = await puppeteer.launch({
+      browser = await playwright.chromium.launch({
         headless: false,
-        args: ["--no-sandbox", "--start-maximized"],
-        defaultViewport: null,
         slowMo: 50,
+        executablePath: EDGE_PATH,
       });
-      const pages = await browser.pages();
-      page = pages[0];
+      const context = await browser.newContext();
+      page = await context.newPage();
     });
 
     it("Fillup form and go to dashboard", async () => {

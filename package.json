@@ -3,11 +3,14 @@
         "test:e2e": "cross-env NODE_ENV=test jest --clearCache && jest -c jest.config.js --detectOpenHandles --forceExit"
     },
     "devDependencies": {
-        "puppeteer": "11.0.0"
+        "babel-plugin-istanbul": "^6.1.1",
+        "edge-paths": "^2.2.1",
+        "jest-playwright-preset": "^1.7.0",
+        "playwright": "^1.17.1"
     },
     "dependencies": {
         "cross-env": "^7.0.3",
-        "jest": "^27.3.1",
-        "jest-puppeteer": "^6.0.0"
+        "customize-cra": "^1.0.0",
+        "jest": "^27.3.1"
     }
 }

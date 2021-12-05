@@ -1,4 +1,4 @@
-const puppeteer = require("puppeteer");
+const playwright = require("playwright");
 
 testFunction = (name) => {
   describe(`Sample test ${name}`, () => {
@@ -6,14 +6,12 @@ testFunction = (name) => {
     let page;
 
     beforeAll(async () => {
-      browser = await puppeteer.launch({
+      browser = await playwright.chromium.launch({
         headless: false,
-        args: ["--no-sandbox", "--start-maximized"],
-        defaultViewport: null,
         slowMo: 50,
       });
-      const pages = await browser.pages();
-      page = pages[0];
+      const context = await browser.newContext();
+      page = await context.newPage();
     });
 
     it("login", async () => {
